@@ -1,0 +1,65 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- search_provider:
+    use_entities: true
+- location:
+    use_entities: true
+- veg:
+    use_entities: true
+- non_veg:
+    use_entities: true
+- non-veg:
+    use_entities: true
+- satisfy:
+    use_entities: true
+entities:
+- city
+slots: {}
+responses:
+  utter_greet:
+  - text: |
+      Hello Welcome to Restaurant Search Chatbot
+      How may I help You?
+  utter_veg_non_veg:
+  - buttons:
+    - payload: /veg
+      title: Vegetarian
+    - payload: /non_veg
+      title: Non-Vegetarian
+    text: what would you like to prefer
+  utter_goodbye:
+  - text: Bye
+  utter_veg:
+  - text: We have butter panir masala,bhindi,dal,dum aaloo....
+  utter_non_veg:
+  - text: We have egg curry,fish curry,bread omlette
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_search_restaurant:
+  - text: Ok i am searching ..... please wait for a while.
+  - text: Please give me copule of minutes..
+  utter_welcome:
+  - text: Welcome.
+  - text: You are welcome.
+  utter_anything_else:
+  - text: Would you like to order anything else?
+  utter_confirmation:
+  - text: Confirm this by replying yes if this is correct else no.
+actions: []
+forms: {}
+e2e_actions: []

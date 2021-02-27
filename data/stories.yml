@@ -1,0 +1,49 @@
+version: "2.0"
+
+stories:
+
+- story: search happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_provider
+  - action: utter_search_restaurant
+  - intent: affirm
+  - action: utter_welcome
+
+- story: HAPPY VEG PATH
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_provider
+  - action: utter_search_restaurant
+  - action: utter_veg_non_veg
+  - intent: veg
+  - action: utter_veg
+  - intent: affirm
+  - action: utter_welcome
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: HAPPY NON VEG PATH
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_provider
+  - action: utter_search_restaurant
+  - action: utter_veg_non_veg
+  - intent: non-veg
+  - action: utter_non_veg
+  - intent: affirm
+  - action: utter_welcome
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Story from Conversation ID d94b91fee6174871a13ffb459e8fb409
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_provider
+  - action: utter_search_restaurant
+  - intent: satisfy
+  - action: utter_welcome
