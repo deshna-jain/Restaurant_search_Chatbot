@@ -73,6 +73,7 @@ nlu:
     - i am looking for restaurants in [Indore](city)
     - hello i am looking for a restaurant in [Indore](city)
     - i want some delicious food
+    - i am hungry
 - intent: location
   examples: |
     - [Delhi](city)
@@ -94,3 +95,7 @@ nlu:
     - non veg
     - non-vegetarian
     - non vegetarian
+- intent: order_veg
+  examples: |
+    - 1 plate bhindi
+    - get me half plate butter paneer masala

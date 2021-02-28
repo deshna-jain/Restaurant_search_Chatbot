@@ -27,6 +27,8 @@ intents:
     use_entities: true
 - satisfy:
     use_entities: true
+- order_veg:
+    use_entities: true
 entities:
 - city
 slots: {}
@@ -58,6 +60,7 @@ responses:
   - text: You are welcome.
   utter_anything_else:
   - text: Would you like to order anything else?
+  - text: do you need any further help?
   utter_confirmation:
   - text: Confirm this by replying yes if this is correct else no.
 actions: []
