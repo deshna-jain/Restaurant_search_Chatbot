@@ -72,7 +72,10 @@ nlu:
     - i am from [Gwalior](city)
     - i am looking for restaurants in [Indore](city)
     - hello i am looking for a restaurant in [Indore](city)
+    - i am looking for restaurants which serve [chinese](cuisine) in [Indore](city)
     - i want some delicious food
+    - i want some delicious [south indian](cuisine) food
+    - i want some [mexican](cuisine) food in [Delhi](city)
     - i am hungry
 - intent: location
   examples: |
@@ -83,6 +86,18 @@ nlu:
     - [Jaipur](city)
     - [Banglore](city)
     - [Pune](city)
+- intent: cuisines_dishes
+  examples: |
+    -[South indian](cuisine)
+    -[Chinese](cuisine)
+    -[italian](cuisine)
+    -[north indian](cuisine)
+    -[Idli sambhar](cuisine)
+    -[Dosa](cuisine)
+    -[Mexican](cuisine)
+    -[noodles](cuisine)
+    -[chole bhature](cuisine)
+    -[khichdi](cuisine)
 - intent: veg
   examples: |
     - vegetarian

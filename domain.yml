@@ -31,12 +31,17 @@ intents:
     use_entities: true
 entities:
 - city
+- cuisine
 slots: {}
 responses:
   utter_greet:
   - text: |
       Hello Welcome to Restaurant Search Chatbot
       How may I help You?
+  - text: |
+      Hello I am Foobot
+      How can I help you?
+  - text: Hello Joey!! looking for some delicious treat?
   utter_veg_non_veg:
   - buttons:
     - payload: /veg
@@ -46,6 +51,8 @@ responses:
     text: what would you like to prefer
   utter_goodbye:
   - text: Bye
+  - text: Have a nice day :)
+  - text: Thankyou! Enjoy your meal :)
   utter_veg:
   - text: We have butter panir masala,bhindi,dal,dum aaloo....
   utter_non_veg:
@@ -63,6 +70,16 @@ responses:
   - text: do you need any further help?
   utter_confirmation:
   - text: Confirm this by replying yes if this is correct else no.
-actions: []
+actions:
+  - utter_greet
+  - utter_veg_non_veg
+  - utter_goodbye
+  - utter_veg
+  - utter_non_veg
+  - utter_iamabot
+  - utter_search_restaurant
+  - utter_welcome
+  - utter_anything_else
+  - utter_confirmation
 forms: {}
 e2e_actions: []
