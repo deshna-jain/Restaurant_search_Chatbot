@@ -29,10 +29,22 @@ intents:
     use_entities: true
 - order_veg:
     use_entities: true
+- cuisine_dishes:
+    use_entities: true
+- search_with_location:
+    use_entities: true
+- search_with_locationandcuisine:
+    use_entities: true
+- search_with_cuisine:
+    use_entities: true
 entities:
 - city
 - cuisine
-slots: {}
+slots:
+  city:
+    type: text
+  cuisine:
+    type: text
 responses:
   utter_greet:
   - text: |
