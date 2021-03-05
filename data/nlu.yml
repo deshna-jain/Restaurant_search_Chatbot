@@ -77,16 +77,18 @@ nlu:
     - i want some delicious [south indian](cuisine) food
     - i want some [mexican](cuisine) food in [Delhi](city)
     - i am hungry
-- intent: search_with_location
-examples: |
-- intent: search_with_locationandcuisine
-  examples: |
+#- intent: search_with_location
+#examples: |
+#- intent: search_with_locationandcuisine
+  #examples: |
 
-- intent: search_with_cuisine
-  examples: |
+#- intent: search_with_cuisine
+  #examples: |
 
 - intent: location
   examples: |
+    - I live in [mumbai](city)
+    - in [Bhopal](city)
     - [Abohar](city)
     - [Achalpur](city)
     - [Adilabad](city)
@@ -624,6 +626,9 @@ examples: |
     - [noodles](cuisine)
     - [chole bhature](cuisine)
     - [khichdi](cuisine)
+    - i want some delicious [paasta](cuisine)
+    - some tasty [burger](cuisine)
+    - I want a yummy[pizza](cuisine)
 - intent: veg
   examples: |
     - vegetarian

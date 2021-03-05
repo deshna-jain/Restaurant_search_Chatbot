@@ -29,7 +29,7 @@ intents:
     use_entities: true
 - order_veg:
     use_entities: true
-- cuisine_dishes:
+- cuisines_dishes:
     use_entities: true
 - search_with_location:
     use_entities: true
@@ -82,6 +82,15 @@ responses:
   - text: do you need any further help?
   utter_confirmation:
   - text: Confirm this by replying yes if this is correct else no.
+  utter_ask_location:
+  - text: Could you please tell me the city you want to search restaurant in?
+  - text: Please let me know the city
+  - text: Please enter the city name
+  utter_cuisine:
+  - text: What would you like to have?
+  - text: What cuisine would you like to have?
+  - text: Please let me know the cuisine you love
+  - text: What would you love to eat?
 actions:
   - utter_greet
   - utter_veg_non_veg
@@ -93,5 +102,7 @@ actions:
   - utter_welcome
   - utter_anything_else
   - utter_confirmation
+  - utter_ask_location
+  - utter_cuisine
 forms: {}
 e2e_actions: []

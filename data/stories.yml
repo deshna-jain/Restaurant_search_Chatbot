@@ -2,23 +2,23 @@ version: "2.0"
 
 stories:
 
-- story: HAPPY VEG PATH
+- story: HAPPY TREAT
   steps:
   - intent: greet
   - action: utter_greet
   - intent: search_provider
   - action: utter_search_restaurant
-  - action: utter_veg_non_veg
-  - intent: veg
-  - action: utter_veg
-  - intent: order_veg
+  - action: utter_ask_location
+  - intent: location
+  - action: utter_cuisine
+  - intent: cuisines_dishes
   - action: utter_anything_else
   - intent: deny
   - action: utter_welcome
   - intent: goodbye
   - action: utter_goodbye
 
-- story: HAPPY NON VEG PATH
+- story: HAPPY PATH WITH LOCATION
   steps:
   - intent: greet
   - action: utter_greet
