@@ -15,6 +15,11 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - hieee
+    - helloooo
+    - holaa
+    - hola
+    - heyy ssup!
 - intent: goodbye
   examples: |
     - good afternoon
@@ -51,6 +56,8 @@ nlu:
     - so good
     - so perfect
     - okay
+    - sure
+    - that's perfect
 - intent: deny
   examples: |
     - no
@@ -60,35 +67,140 @@ nlu:
     - don't like that
     - no way
     - not really
+    - nahh
+    - no thank you
+    - no thanks!
+    - that's it
+    - No thanks, that will be enough
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-- intent: search_provider
+- intent: restaurant_search
   examples: |
-    - can you show me the list of restaurants in [bhopal](city)?
-    - i am from [Gwalior](city)
-    - i am looking for restaurants in [Mumbai](city)
-    - hello i am looking for a restaurant in [vidisha](city)
-    - i am looking for restaurants which serve [chinese](cuisine) in [pune](city)
     - i want some delicious food
-    - i want some delicious [south indian](cuisine) food
-    - i want some [mexican](cuisine) food in [Delhi](city)
     - i am hungry
-#- intent: search_with_location
-#examples: |
-#- intent: search_with_locationandcuisine
-  #examples: |
-
-#- intent: search_with_cuisine
-  #examples: |
-
-- intent: location
+    - i am so so hungryy
+    - tell me some nice place with good food
+    - I want to look out for some good restaurants nearby
+    - looking for some nice cafe nearby
+    - please get me some restaurants near me
+    - please get me some restaurants
+    - i am looking for some restaurants near me
+    - i am looking for some restaurants
+    - get me some restaurants
+    - looking for some restaurants
+    - get me some restaurants please
+    - hey i am looking for some restaurants
+    - looking for some restraunts
+    - get me few restaurants
+    - please provide me a list of restaurants
+    - looking for some food points
+    - i am hungry
+    - tell me some food points near to me
+    - give me some food stalls
+    - tell me some restaurants
+    - give me some restaurants
+    - get me a list of restaurants near to me
+    - provide me some restaurants
+    - hey can you help me to find some restaurants nearby
+    - please get me a list of restaurants
+    - please get me a list of restaurants near by
+    - please help me find some restaurants
+    - get me some restaurants near by
+    - get me some restaurants near me
+    - i am hungry get me some restaurants near by
+    - please get me some restaurants near by
+    - please get me a list of all restaurants near by
+    - please get me all the restaurants near by
+    - please give me a list of restaurants
+    - get me a list of restaurants
+    - please find me some restaurants
+    - please get me a list of all restaurants
+    - get me a list of all restaurants near to me
+    - tell me some restaurants here
+    - i am hungry please tell me some restaurants near to me
+    - i want to eat something please tell me some location near by
+    - please tell me some food points here
+    - get me some restaurants neary by
+    - get me some food points
+    - find some food places near to me
+    - get me some restaurants near to me
+    - i am looking for some food points
+    - i am looking for restaurants
+    - get me some flight details
+    - ok get me some restaurants nearby
+    - get me some restaurants nearby
+    - get me some restaurants in chennai
+    - get me some restaurants i am hungry
+    - i am hungry please get me some restaurants
+    - need food
+    - please get me pizza stores
+    - get me some restaurants near
+    - get me some restaurants
+- intent: search_with_location
   examples: |
+    - i am looking in [Indore](city)
+    - looking to eat in [Kathua](city)
+    - get me some food in [Kota](city)
+    - i am looking to eat in [Abohar](city)
+    - i am looking in [Borivali](city)
+    - i am looking for restaurants in [Fatehpur](city)
+    - get me some restaurants in [Goa](city)
+    - i would like to eat something in [Guna](city)
+    - hey i am looking to eat something in [Ooty](city)
+    - get me some stores in [Gaya](city)
+    - show me some restaurants in [Allahabad](city)
+    - get me some food in [Gwalior](city)
+    - my preferred location will be [Bengaluru](city)
+    - my location will be in [Mumbai](city)
+    - my location will be in [Hyderabad](city)
     - I live in [mumbai](city)
     - in [Bhopal](city)
+    - yes i live in [Meerut](city)
+    - i am in [Salem](city)
+    - ya i am living in [Roorkee](city)
+    - yes i am living in [Samba](city)
+    - i am from [Gwalior](city)
+    - my area is [Achalpur](city)
+    - my location is [Kolkata](city)
+    - my prefered location is [Ankleshwar](city)
+    - my prefered location will be [Kotdwar](city)
+    - my location will be [Noida](city)
+    - my prefered location is [Rampur](city)
+    - my location will be [Shimla](city)
+    - i am living near to [Nashik](city)
+    - yes i am living in [Nadiad](city)
+    - i am near to [Sangli](city)
+    - living in [Thane](city)
+    - ya i am in [Haridwar](city)
+    - ya i am living in [Haldia](city)
+    - i am in [Delhi](city)
+    - yes i am in [Patna](city)
+    - my location is [Kerala](city)
+    - my location will be [Ajmer](city)
+    - i am living in [Anand](city)
+    - my location will be [Yavatmal](city)
+    - my location will be [Akola](city)
+    - my location is [Bellary](city)
+    - my location will be in [Sehore](city)
+    - i think i am near to [Warangal](city)
+    - i am near to [Bharuch](city)
+    - i am living in [Dewas](city)
+    - my location will be in [Firozabad](city)
+    - i am living in [Manali](city)
+    - my location is [Andheri](city)
+    - i am currently living in [Chandigarh](city)
+    - i am living near [Manipal](city)
+    - i am living in [Mussoorie](city)
+    - currently living in [Chennai](city)
+    - i am in [Chitrakoot](city)
+    - this place seems to be close to [Wani](city)
+    - i feel this place is near to [Mysore](city)
+    - i am near to [Nagpur](city)
+    - i think i am near to [Dehradun](city)
     - [Abohar](city)
     - [Achalpur](city)
     - [Adilabad](city)
@@ -614,8 +726,163 @@ nlu:
     - [Wardha](city)
     - [Yamuna Nagar](city)
     - [Yavatmal](city)
-- intent: cuisines_dishes
+
+- intent: search_with_locationandcuisine
   examples: |
+    - i am looking for some [Chinese](cuisine) food in [Mumbai](city)
+    - i am looking for [italian](cuisine) food in [Hyderabad](city)
+    - i am looking for some [Chinese](cuisine) food in [Hyderabad](city)
+    - [Chinese](cuisine) food in [Hyderabad](city)
+    - [italian](cuisine) food in [Hyderabad](city)
+    - looking for [italian](cuisine) food in [Hyderabad](city)
+    - will try [South indian](cuisine) in [Mumbai](city)
+    - would like to eat [Mexican](cuisine) in [Mumbai](city)
+    - i would like to eat [Mexican](cuisine) in [Kerala](city)
+    - i would love to eat [Mexican](cuisine) in [Hyderabad](city)
+    - i would love to eat [italian](cuisine) in [Hyderabad](city)
+    - will eat [arabian](cuisine) food in [Hyderabad](city)
+    - will eat [thai](cuisine) in [Hyderabad](city)
+    - would like to eat [Mexican](cuisine) in [Chennai](city)
+    - i will prefer to eat [italian](cuisine) food in [Mumbai](city)
+    - i need [Chinese](cuisine) food in [Kerala](city)
+    - i will need some [South indian](cuisine) food in [Bengaluru](city)
+    - i would love to eat [north indian](cuisine) food in [Hyderabad](city)
+    - i am looking for [Mexican](cuisine) food in [Hyderabad](city)
+    - i am looking to eat [italian](cuisine) food in [Chennai](city)
+    - i am looking to eat some [South indian](cuisine) food in [Chennai](city)
+    - i am looking to eat [italian](cuisine) food in [Hyderabad](city)
+    - i would like to eat [italian](cuisine) food in [Hyderabad](city)
+    - i am looking to eat [Chinese](cuisine) food in [Chennai](city)
+    - i am looking for [italian](cuisine) food in [Mumbai](city)
+    - i am looking to eat [South indian](cuisine) food in [Chennai](city)
+    - i am looking to eat some [italian](cuisine) food in [Mumbai](city)
+    - i am looking for some [italian](cuisine) food in [Chennai](city)
+    - i am looking to eat something [Chinese](cuisine) in [Hyderabad](city)
+    - i am looking for [italian](cuisine) food in [Madhapur](city)
+    - i am looking to eat [italian](cuisine) food in [Mumbai](city)
+    - i would like to eat [north indian](cuisine) food in [Hyderabad](city)
+    - i would like to eat [Chinese](cuisine) food in [Hyderabad](city)
+    - i would like to eat [Chinese](cuisine) in [Hyderabad](city)
+    - i would like to eat [italian](cuisine) in [Hyderabad](city)
+    - i am looking to eat [italian](cuisine) food in [Delhi](city)
+    - would like to eat [italian](cuisine) food in [Hyderabad](city)
+    - i would like to eat [italian](cuisine) food in [Delhi](city)
+    - i am looking to eat some [italian](cuisine) food in [Chennai](city)
+    - i am looking to eat some [italian](cuisine) food in [Kerala](city)
+    - i would love to have [Chinese](cuisine) food in [Chennai](city)
+    - looking to eat [Chinese](cuisine) food in [Faridabad](city)
+    - i am looking for [italian](cuisine) food in [Thane](city)
+    - i would love to eat [Chinese](cuisine) food in [Delhi](city)
+    - i would love to eat [Chinese](cuisine) food in [Mumbai](city)
+    - i am looking to eat [Chinese](cuisine) food in [Faridabad](city)
+    - i would like to eat [italian](cuisine) food in [Mumbai](city)
+    - get me some [italian](cuisine) food in [Chennai](city)
+    - get me some [italian](cuisine) food in [Mumbai](city)
+    - i am looking to eat [Chinese](cuisine) food in [Mumbai](city)
+    - looking for some [italian](cuisine) food in [Mumbai](city)
+    - i would like to eat [Chinese](cuisine) food in [Mumbai](city)
+    - looking to eat [italian](cuisine) food in [Mumbai](city)
+    - looking for [Chinese](cuisine) food in [Chennai](city)
+    - i am looking for restaurants which serve [chinese](cuisine) in [pune](city)
+    - i want some [mexican](cuisine) food in [Delhi](city)
+    - tell me some [italian](cuisine) cafe in [manali](city)
+
+- intent: search_with_cuisine
+  examples: |
+    - i want some delicious [south indian](cuisine) food
+    - Looking for some place which serves awesome [chole bhature](cuisine)
+    - where can i find tasty [sandwitch](cuisine)
+    - i want [pizza](cuisine)
+    - [Sweets](cuisine)
+    - [Snacks](cuisine)
+    - [Beverages](cuisine)
+    - [Desserts](cuisine)
+    - [Indian](cuisine)
+    - [Bakery](cuisine)
+    - [Fast Food](cuisine)
+    - [Ice Cream](cuisine)
+    - [Tandoor](cuisine)
+    - [Continental](cuisine)
+    - [Chaat](cuisine)
+    - [Healthy Food](cuisine)
+    - [Biryani](cuisine)
+    - [Pizzas](cuisine)
+    - [Hyderabadi](cuisine)
+    - [Paan](cuisine)
+    - [Juices](cuisine)
+    - [Barbecue](cuisine)
+    - [Thalis](cuisine)
+    - [Combo](cuisine)
+    - [Oriental](cuisine)
+    - [American](cuisine)
+    - [Mughlai](cuisine)
+    - [Nepalese](cuisine)
+    - [Andhra](cuisine)
+    - [Seafood](cuisine)
+    - [Thai](cuisine)
+    - [North Eastern](cuisine)
+    - [Tribal](cuisine)
+    - [Kebabs](cuisine)
+    - [Bengali](cuisine)
+    - [Street Food](cuisine)
+    - [Punjabi](cuisine)
+    - [Pastas](cuisine)
+    - [Salad](cuisine)
+    - [Gujarati](cuisine)
+    - [Arabian](cuisine)
+    - [Jain](cuisine)
+    - [Europe](cuisine)
+    - [Pan- [Asian](cuisine)
+    - [Asian](cuisine)
+    - [Salads](cuisine)
+    - [Lebanese](cuisine)
+    - [Japanese](cuisine)
+    - [Maharashtrian](cuisine)
+    - [Afghani](cuisine)
+    - [Rajasthani](cuisine)
+    - [Kerala](cuisine)
+    - [Lucknowi](cuisine)
+    - [Haleem](cuisine)
+    - [Grill](cuisine)
+    - [Home Food](cuisine)
+    - [Tibetan](cuisine)
+    - [Mangalorean](cuisine)
+    - [Malaysian](cuisine)
+    - [Chettinad](cuisine)
+    - [Middle Eastern](cuisine)
+    - [Turkish](cuisine)
+    - [Portuguese](cuisine)
+    - [Awadhi](cuisine)
+    - [Coastal](cuisine)
+    - [European](cuisine)
+    - [Malwani](cuisine)
+    - [Mediterranean](cuisine)
+    - [Keto](cuisine)
+    - [Italian](cuisine)
+    - [American](cuisine)
+    - [Mongolian](cuisine)
+    - [Goan](cuisine)
+    - [South American](cuisine)
+    - [Oriya](cuisine)
+    - [African](cuisine)
+    - [Burmese](cuisine)
+    - [Sushi](cuisine)
+    - [Korean](cuisine)
+    - [Singaporean](cuisine)
+    - [French](cuisine)
+    - [Persian](cuisine)
+    - [Sindhi](cuisine)
+    - [Assamese](cuisine)
+    - [Naga](cuisine)
+    - [Khasi](cuisine)
+    - [German](cuisine)
+    - [Bihari](cuisine)
+    - [Parsi](cuisine)
+    - [Spanish](cuisine)
+    - [Konkan](cuisine)
+    - [Fastfood](cuisine)
+    - [Raw meats](cuisine)
+    - [Australian](cuisine)
     - [South indian](cuisine)
     - [Chinese](cuisine)
     - [italian](cuisine)
@@ -628,20 +895,5 @@ nlu:
     - [khichdi](cuisine)
     - i want some delicious [paasta](cuisine)
     - some tasty [burger](cuisine)
-    - I want a yummy[pizza](cuisine)
-- intent: veg
-  examples: |
-    - vegetarian
-    - pure veg
-    - veg
-- intent: non_veg
-  examples: |
-    - non-veg
-    - nonveg
-    - non veg
-    - non-vegetarian
-    - non vegetarian
-- intent: order_veg
-  examples: |
-    - 1 plate bhindi
-    - get me half plate butter paneer masala
+    - I want a yummy [pizza](cuisine)
+    - I want [desserts](cuisine)

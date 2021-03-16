@@ -6,15 +6,15 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: search_provider
-  - action: utter_search_restaurant
+  - intent: restaurant_search
   - action: utter_ask_location
-  - intent: location
-  - action: utter_cuisine
-  - intent: cuisines_dishes
+  - intent: search_with_location
+  - action: utter_ask_cuisine
+  - intent: search_with_cuisine
+  - action: utter_search_restaurant
   - action: utter_anything_else
   - intent: deny
-  - action: utter_welcome
+  - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
 
@@ -22,16 +22,79 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: search_provider
+  - intent: search_with_location
+  - action: utter_ask_cuisine
+  - intent: search_with_cuisine
   - action: utter_search_restaurant
-  - action: utter_veg_non_veg
-  - intent: non-veg
-  - action: utter_non_veg
-  - intent: affirm
-  - action: utter_welcome
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
 
+- story: HAPPY PATH WITH CUISINE
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_with_cuisine
+  - action: utter_ask_location
+  - intent: search_with_location
+  - action: utter_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: HAPPY PATH WITH LOCATION AND CUISINE
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_with_locationandcuisine
+  - action: utter_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: CUISINE ASK LOCATION
+  steps:
+  - intent: search_with_cuisine
+  - action: utter_ask_location
+  - intent: search_with_location
+  - action: utter_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: LOCATION ASK CUISINE
+  steps:
+  - intent: search_with_location
+  - action: utter_ask_cuisine
+  - intent: search_with_cuisine
+  - action: utter_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: SEARCH FOOD WITH CUISINE
+  steps:
+  - intent: restaurant_search
+  - action: utter_ask_cuisine
+  - intent: search_with_cuisine
+  - action: utter_ask_location
+  - intent: search_with_location
+  - action: utter_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+  - intent: goodbye
+  - action: utter_goodbye
 #- story: Story from Conversation ID d94b91fee6174871a13ffb459e8fb409
  # steps:
  # - intent: greet
