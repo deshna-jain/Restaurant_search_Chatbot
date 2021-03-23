@@ -38,17 +38,27 @@ entities:
 - rating
 slots:
   city:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   cuisine:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   price:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
   rating:
-    type: float
+    type: rasa.shared.core.slots.FloatSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
     max_value: 5.0
-
+    min_value: 0.0
 responses:
   utter_greet:
   - text: |
@@ -87,37 +97,37 @@ responses:
   - text: Please let me know the cuisine you love
   - text: What would you love to eat?
   utter_ask_price:
-    - text: "Please select the price range(for two):"
-      buttons:
-      - title: "Rs:100-200"
-        payload: /price_range{{"price":"100-200"}}
-      - title: "Rs:200-300"
-        payload: /price_range{{"price":"200-300"}}
-      - title: "Rs:300-400"
-        payload: /price_range{{"price":"300-400"}}
-      - title: "Rs>400"
-        payload: /price_range{{"price":">400"}}
+  - buttons:
+    - payload: /price_range{{"price":"100-200"}}
+      title: Rs:100-200
+    - payload: /price_range{{"price":"200-300"}}
+      title: Rs:200-300
+    - payload: /price_range{{"price":"300-400"}}
+      title: Rs:300-400
+    - payload: /price_range{{"price":">400"}}
+      title: Rs>400
+    text: 'Please select the price range(for two):'
   utter_ask_rating:
-    - text: "Wanna lookout for restaurants with ratings(out of 5):"
-      buttons:
-        - title: "1.0 to 3.0"
-          payload: /ratings{{"rating":3.0}}
-        - title: "3.0 to 4.0"
-          payload: /ratings{{"rating":4.0}}
-        - title: "4.0 to 5.0"
-          payload: /ratings{{"rating":5.0}}
-
+  - buttons:
+    - payload: /ratings{{"rating":3.0}}
+      title: 1.0 to 3.0
+    - payload: /ratings{{"rating":4.0}}
+      title: 3.0 to 4.0
+    - payload: /ratings{{"rating":5.0}}
+      title: 4.0 to 5.0
+    text: 'Wanna lookout for restaurants with ratings(out of 5):'
 actions:
-  - utter_greet
-  - utter_goodbye
-  - utter_iamabot
-  - utter_search_restaurant
-  - utter_welcome
-  - utter_anything_else
-  - utter_confirmation
-  - utter_ask_location
-  - utter_ask_cuisine
-  - utter_ask_price
-  - utter_ask_rating
+- utter_greet
+- utter_goodbye
+- utter_iamabot
+- utter_search_restaurant
+- utter_welcome
+- utter_anything_else
+- utter_confirmation
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_price
+- utter_ask_rating
+- action_hello_world
 forms: {}
 e2e_actions: []
