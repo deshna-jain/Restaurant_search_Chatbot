@@ -154,6 +154,8 @@ nlu:
     - get me some stores in [Gaya](city)
     - show me some restaurants in [Allahabad](city)
     - get me some food in [Gwalior](city)
+- intent: location
+  examples: |
     - my preferred location will be [Bengaluru](city)
     - my location will be in [Mumbai](city)
     - my location will be in [Hyderabad](city)
@@ -793,6 +795,13 @@ nlu:
     - Looking for some place which serves awesome [chole bhature](cuisine)
     - where can i find tasty [sandwitch](cuisine)
     - i want [pizza](cuisine)
+    - i want some delicious [paasta](cuisine)
+    - some tasty [burger](cuisine)
+    - I want a yummy [pizza](cuisine)
+    - I want [desserts](cuisine)
+
+- intent: cuisines
+  examples: |
     - [Sweets](cuisine)
     - [Snacks](cuisine)
     - [Beverages](cuisine)
@@ -893,7 +902,16 @@ nlu:
     - [noodles](cuisine)
     - [chole bhature](cuisine)
     - [khichdi](cuisine)
-    - i want some delicious [paasta](cuisine)
-    - some tasty [burger](cuisine)
-    - I want a yummy [pizza](cuisine)
-    - I want [desserts](cuisine)
+
+- intent: price_range
+  examples: |
+    - [100-200](price)
+    - [200-300](price)
+    - [300-400](price)
+    - [>400](price)
+
+- intent: ratings
+  examples: |
+    - [3.0](rating)
+    - [4.0](rating)
+    - [5.0](rating)

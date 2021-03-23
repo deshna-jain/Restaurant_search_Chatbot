@@ -23,14 +23,32 @@ intents:
     use_entities: true
 - search_with_cuisine:
     use_entities: true
+- price_range:
+    use_entities: true
+- ratings:
+    use_entities: true
+- cuisines:
+    use_entities: true
+- location:
+    use_entities: true
 entities:
 - city
 - cuisine
+- price
+- rating
 slots:
   city:
     type: text
+    influence_conversation: true
   cuisine:
     type: text
+    influence_conversation: true
+  price:
+    type: text
+  rating:
+    type: float
+    max_value: 5.0
+
 responses:
   utter_greet:
   - text: |
@@ -68,6 +86,27 @@ responses:
   - text: What cuisine would you like to have?
   - text: Please let me know the cuisine you love
   - text: What would you love to eat?
+  utter_ask_price:
+    - text: "Please select the price range(for two):"
+      buttons:
+      - title: "Rs:100-200"
+        payload: /price_range{{"price":"100-200"}}
+      - title: "Rs:200-300"
+        payload: /price_range{{"price":"200-300"}}
+      - title: "Rs:300-400"
+        payload: /price_range{{"price":"300-400"}}
+      - title: "Rs>400"
+        payload: /price_range{{"price":">400"}}
+  utter_ask_rating:
+    - text: "Wanna lookout for restaurants with ratings(out of 5):"
+      buttons:
+        - title: "1.0 to 3.0"
+          payload: /ratings{{"rating":3.0}}
+        - title: "3.0 to 4.0"
+          payload: /ratings{{"rating":4.0}}
+        - title: "4.0 to 5.0"
+          payload: /ratings{{"rating":5.0}}
+
 actions:
   - utter_greet
   - utter_goodbye
@@ -78,5 +117,7 @@ actions:
   - utter_confirmation
   - utter_ask_location
   - utter_ask_cuisine
+  - utter_ask_price
+  - utter_ask_rating
 forms: {}
 e2e_actions: []
