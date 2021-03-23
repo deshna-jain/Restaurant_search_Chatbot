@@ -24,7 +24,9 @@ class ActionHelloWorld(Action):
         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
          #dispatcher.utter_message(text="Hello World!")
+        c = tracker.get_slot('city')
         print("city:", tracker.get_slot('city'))
         print("cuisine:", tracker.get_slot('cuisine'))
-        print(tracker.latest_message)
+        dispatcher.utter_message(text="Your city is "+c)
+        # print(tracker.latest_message)
         return []
