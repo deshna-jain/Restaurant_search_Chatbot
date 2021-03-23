@@ -16,6 +16,7 @@ stories:
   - action: utter_ask_rating
   - intent: ratings
   - action: utter_search_restaurant
+  - action: action_hello_world
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
