@@ -106,6 +106,8 @@ responses:
       title: Rs:300-400
     - payload: /price_range{{"price":">400"}}
       title: Rs>400
+    - payload: /price_range{{"price":"nill"}}
+      title: Any would work!
     text: 'Please select the price range(for two):'
   utter_ask_rating:
   - buttons:
@@ -115,6 +117,8 @@ responses:
       title: 3.0 to 4.0
     - payload: /ratings{{"rating":5.0}}
       title: 4.0 to 5.0
+    - payload: /ratings{{"rating":0.0}}
+      title: Any would work!
     text: 'Wanna lookout for restaurants with ratings(out of 5):'
 actions:
 - utter_greet
