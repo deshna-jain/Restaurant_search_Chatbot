@@ -1,43 +1,47 @@
 version: "2.0"
 stories:
-- story: happy path 1 (C:\Users\DESHNA~1\AppData\Local\Temp\tmp2qm8lkhr\77fbc732f1c44ceeab5f3210865d5a95_test_stories.yml)
+- story: search with cuisine (C:\Users\DESHNA~1\AppData\Local\Temp\tmpp4y_s304\776c4394c41545d294135e36230a749e_test_stories.yml)
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great  # predicted: affirm: amazing
-  - action: utter_happy  # predicted: utter_welcome
-- story: happy path 2 (C:\Users\DESHNA~1\AppData\Local\Temp\tmp2qm8lkhr\77fbc732f1c44ceeab5f3210865d5a95_test_stories.yml)
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great  # predicted: affirm: amazing
-  - action: utter_happy  # predicted: utter_welcome
-  - intent: goodbye
-  - action: utter_goodbye
-- story: sad path 1 (C:\Users\DESHNA~1\AppData\Local\Temp\tmp2qm8lkhr\77fbc732f1c44ceeab5f3210865d5a95_test_stories.yml)
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy  # predicted: deny: not good
-  - action: utter_cheer_up  # predicted: utter_welcome
-  - action: utter_did_that_help  # predicted: action_listen
+  - intent: search_with_cuisine  # predicted: restaurant_search: I am looking for some delicious [mexican](cuisine) food
+    entities:
+    - cuisine: mexican
+  - slot_was_set:
+    - cuisine: mexican
+  - action: utter_ask_location
+  - intent: location
+    entities:
+    - city: Mumbai
+  - slot_was_set:
+    - city: Mumbai
+  - action: utter_search_reasaurant  # predicted: utter_ask_price
   - intent: affirm
-  - action: utter_happy  # predicted: utter_welcome
-- story: sad path 2 (C:\Users\DESHNA~1\AppData\Local\Temp\tmp2qm8lkhr\77fbc732f1c44ceeab5f3210865d5a95_test_stories.yml)
+  - action: utter_goodbye  # predicted: utter_ask_cuisine
+- story: search with location (C:\Users\DESHNA~1\AppData\Local\Temp\tmpp4y_s304\776c4394c41545d294135e36230a749e_test_stories.yml)
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy  # predicted: deny: not good
-  - action: utter_cheer_up  # predicted: utter_welcome
-  - action: utter_did_that_help  # predicted: action_listen
-  - intent: deny
-  - action: utter_goodbye  # predicted: utter_welcome
-- story: sad path 3 (C:\Users\DESHNA~1\AppData\Local\Temp\tmp2qm8lkhr\77fbc732f1c44ceeab5f3210865d5a95_test_stories.yml)
+  - intent: search_with_location
+    entities:
+    - city: Delhi
+  - slot_was_set:
+    - city: Delhi
+  - action: utter_ask_cuisines  # predicted: utter_ask_cuisine
+  - intent: cuisines
+    entities:
+    - cuisine: Chole bhature
+  - slot_was_set:
+    - cuisine: Chole bhature
+  - action: utter_search_reasaurant  # predicted: utter_ask_price
+  - intent: affirm
+  - action: utter_goodbye  # predicted: utter_ask_price
+- story: search with location and cuisine (C:\Users\DESHNA~1\AppData\Local\Temp\tmpp4y_s304\776c4394c41545d294135e36230a749e_test_stories.yml)
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy  # predicted: affirm: very terrible
-  - action: utter_cheer_up  # predicted: utter_welcome
-  - action: utter_did_that_help  # predicted: action_listen
-  - intent: deny
-  - action: utter_goodbye  # predicted: utter_welcome
+  - intent: search_with_locationandcuisine  # predicted: search_with_location: I am looking for delicious [Pizza](cuisine) in [Indore](city)
+    entities:
+    - cuisine: Pizza
+    - city: Indore
+  - slot_was_set:
+    - city: Indore
+  - slot_was_set:
+    - cuisine: Pizza
+  - action: utter_search_reasaurant  # predicted: utter_ask_price
+  - intent: affirm
+  - action: utter_goodbye  # predicted: utter_ask_cuisine

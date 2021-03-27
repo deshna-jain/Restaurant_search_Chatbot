@@ -1,27 +1,48 @@
 {
+  "price": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 4,
+    "confused_with": {}
+  },
+  "cuisine": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 186,
+    "confused_with": {}
+  },
   "city": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 11,
+    "support": 655,
+    "confused_with": {}
+  },
+  "rating": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
     "confused_with": {}
   },
   "micro avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 11
+    "support": 848
   },
   "macro avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 11
+    "support": 848
   },
   "weighted avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 11
+    "support": 848
   }
 }

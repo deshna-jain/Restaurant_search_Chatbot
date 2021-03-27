@@ -2,80 +2,6 @@
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
 stories:
-- story: happy path 1
-  steps:
-  - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-
-- story: happy path 2
-  steps:
-  - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
-
-- story: sad path 1
-  steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      not really
-    intent: deny
-  - action: utter_goodbye
-
-- story: sad path 3
-  steps:
-  - user: |
-      hi
-    intent: greet
-  - action: utter_greet
-  - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
-
 - story: say goodbye
   steps:
   - user: |
@@ -89,3 +15,44 @@ stories:
       are you a bot?
     intent: bot_challenge
   - action: utter_iamabot
+
+- story: search with cuisine
+  steps:
+  - user: |
+      I am looking for some delicious [mexican](cuisine) food
+    intent: search_with_cuisine
+  - action: utter_ask_location
+  - user: |
+      I think i am near [Mumbai](city)
+    intent: location
+  - action: utter_search_reasaurant
+  - user: |
+      thank you
+    intent: affirm
+  - action: utter_goodbye
+
+- story: search with location
+  steps:
+  - user: |
+      I am looking for some good restaurants in [Delhi](city)
+    intent: search_with_location
+  - action: utter_ask_cuisines
+  - user: |
+      [Chole bhature](cuisine)
+    intent: cuisines
+  - action: utter_search_reasaurant
+  - user: |
+      thank you
+    intent: affirm
+  - action: utter_goodbye
+
+- story: search with location and cuisine
+  steps:
+  - user: |
+      I am looking for delicious [Pizza](cuisine) in [Indore](city)
+    intent: search_with_locationandcuisine
+  - action: utter_search_reasaurant
+  - user: |
+      thank you
+    intent: affirm
+  - action: utter_goodbye

@@ -1,36 +1,22 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet:
-    use_entities: true
-- goodbye:
-    use_entities: true
-- affirm:
-    use_entities: true
-- deny:
-    use_entities: true
-- bot_challenge:
-    use_entities: true
-- restaurant_search:
-    use_entities: true
-- search_with_location:
-    use_entities: true
-- search_with_locationandcuisine:
-    use_entities: true
-- search_with_cuisine:
-    use_entities: true
-- price_range:
-    use_entities: true
-- ratings:
-    use_entities: true
-- cuisines:
-    use_entities: true
-- location:
-    use_entities: true
+- ratings
+- cuisines
+- greet
+- price_range
+- deny
+- search_with_location
+- search_with_locationandcuisine
+- restaurant_search
+- location
+- search_with_cuisine
+- goodbye
+- stop
+- affirm
+- bot_challenge
 entities:
 - city
 - cuisine
@@ -38,24 +24,16 @@ entities:
 - rating
 slots:
   city:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   cuisine:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   price:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   rating:
-    type: rasa.shared.core.slots.FloatSlot
-    initial_value: null
-    auto_fill: true
+    type: float
     influence_conversation: true
     max_value: 5.0
     min_value: 0.0
@@ -120,18 +98,22 @@ responses:
     - payload: /ratings{{"rating":0.0}}
       title: Any would work!
     text: 'Wanna lookout for restaurants with ratings(out of 5):'
+  utter_ask_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  utter_default:
+  - text: Sorry I didn't get that. Can you rephrase?
 actions:
-- utter_greet
+- action_hello_world
+- utter_anything_else
+- utter_ask_cuisine
+- utter_ask_location
+- utter_ask_price
+- utter_ask_rating
+- utter_ask_rephrase
+- utter_confirmation
+- utter_default
 - utter_goodbye
+- utter_greet
 - utter_iamabot
 - utter_search_restaurant
 - utter_welcome
-- utter_anything_else
-- utter_confirmation
-- utter_ask_location
-- utter_ask_cuisine
-- utter_ask_price
-- utter_ask_rating
-- action_hello_world
-forms: {}
-e2e_actions: []

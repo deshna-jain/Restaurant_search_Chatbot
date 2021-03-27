@@ -138,3 +138,200 @@ stories:
   #- action: utter_search_restaurant
   #- intent: satisfy
   #- action: utter_welcome
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_with_cuisine
+    entities:
+    - cuisine: idli sambhar
+  - slot_was_set:
+    - cuisine: idli sambhar
+  - action: utter_ask_location
+  - intent: location
+    entities:
+    - city: Jhansi
+  - slot_was_set:
+    - city: Jhansi
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: nill
+  - slot_was_set:
+    - price: nill
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating: 5.0
+  - slot_was_set:
+    - rating: 5.0
+  - action: utter_search_restaurant
+  - action: action_hello_world
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_with_locationandcuisine
+    entities:
+    - cuisine: mexican
+    - city: Indore
+  - slot_was_set:
+    - city: Indore
+  - slot_was_set:
+    - cuisine: mexican
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: 200-300
+  - slot_was_set:
+    - price: 200-300
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating
+  - slot_was_set:
+    - rating: 0.0
+  - action: utter_search_restaurant
+  - action: action_hello_world
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_3
+  steps:
+  - intent: restaurant_search
+  - action: utter_ask_cuisine
+  - intent: cuisines
+    entities:
+    - cuisine: pizza
+  - slot_was_set:
+    - cuisine: pizza
+  - action: utter_ask_location
+  - intent: location
+    entities:
+    - city: Bhopal
+  - slot_was_set:
+    - city: Bhopal
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: 300-400
+  - slot_was_set:
+    - price: 300-400
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating: 5.0
+  - slot_was_set:
+    - rating: 5.0
+  - action: utter_search_restaurant
+  - action: action_hello_world
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_with_location
+    entities:
+    - city: manali
+  - slot_was_set:
+    - city: manali
+  - action: utter_ask_cuisine
+  - intent: cuisines
+    entities:
+    - cuisine: expresso coffee
+  - slot_was_set:
+    - cuisine: expresso coffee
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: nill
+  - slot_was_set:
+    - price: nill
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating
+  - slot_was_set:
+    - rating: 0.0
+  - action: utter_search_restaurant
+  - action: action_hello_world
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_with_location
+    entities:
+    - city: kota
+  - slot_was_set:
+    - city: kota
+  - action: utter_ask_cuisine
+  - intent: cuisines
+    entities:
+    - cuisine: rajasthani
+  - slot_was_set:
+    - cuisine: rajasthani
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: 200-300
+  - slot_was_set:
+    - price: 200-300
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating: 5.0
+  - slot_was_set:
+    - rating: 5.0
+  - action: utter_search_restaurant
+  - action: action_hello_world
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_with_location
+    entities:
+    - city: udaipur
+  - slot_was_set:
+    - city: udaipur
+  - action: utter_ask_cuisine
+  - intent: cuisines
+    entities:
+    - cuisine: rajasthani
+  - slot_was_set:
+    - cuisine: rajasthani
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: 200-300
+  - slot_was_set:
+    - price: 200-300
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating: 5.0
+  - slot_was_set:
+    - rating: 5.0
+  - action: utter_search_restaurant
+  - action: action_hello_world
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
