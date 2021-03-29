@@ -1,7 +1,5 @@
 version: "2.0"
-
 stories:
-
 - story: HAPPY TREAT
   steps:
   - intent: greet
@@ -9,6 +7,7 @@ stories:
   - intent: restaurant_search
   - action: utter_ask_location
   - intent: location
+  - action: action_verify_location
   - action: utter_ask_cuisine
   - intent: cuisines
   - action: utter_ask_price
@@ -16,18 +15,18 @@ stories:
   - action: utter_ask_rating
   - intent: ratings
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
-
 - story: HAPPY PATH WITH LOCATION
   steps:
   - intent: greet
   - action: utter_greet
   - intent: search_with_location
+  - action: action_verify_location
   - action: utter_ask_cuisine
   - intent: cuisines
   - action: utter_ask_price
@@ -35,13 +34,12 @@ stories:
   - action: utter_ask_rating
   - intent: ratings
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
-
 - story: HAPPY PATH WITH CUISINE
   steps:
   - intent: greet
@@ -49,55 +47,56 @@ stories:
   - intent: search_with_cuisine
   - action: utter_ask_location
   - intent: location
+  - action: action_verify_location
   - action: utter_ask_price
   - intent: price_range
   - action: utter_ask_rating
   - intent: ratings
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
-
 - story: HAPPY PATH WITH LOCATION AND CUISINE
   steps:
   - intent: greet
   - action: utter_greet
   - intent: search_with_locationandcuisine
+  - action: action_verify_location
   - action: utter_ask_price
   - intent: price_range
   - action: utter_ask_rating
   - intent: ratings
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
-
 - story: CUISINE ASK LOCATION
   steps:
   - intent: search_with_cuisine
   - action: utter_ask_location
   - intent: location
+  - action: action_verify_location
   - action: utter_ask_price
   - intent: price_range
   - action: utter_ask_rating
   - intent: ratings
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
-
 - story: LOCATION ASK CUISINE
   steps:
   - intent: search_with_location
+  - action: action_verify_location
   - action: utter_ask_cuisine
   - intent: cuisines
   - action: utter_ask_price
@@ -105,13 +104,12 @@ stories:
   - action: utter_ask_rating
   - intent: ratings
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
-
 - story: SEARCH FOOD WITH CUISINE
   steps:
   - intent: restaurant_search
@@ -119,26 +117,18 @@ stories:
   - intent: cuisines
   - action: utter_ask_location
   - intent: location
+  - action: action_verify_location
   - action: utter_ask_price
   - intent: price_range
   - action: utter_ask_rating
   - intent: ratings
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
-#- story: Story from Conversation ID d94b91fee6174871a13ffb459e8fb409
- # steps:
- # - intent: greet
-  #- action: utter_greet
-  #- intent: search_provider
-  #- action: utter_search_restaurant
-  #- intent: satisfy
-  #- action: utter_welcome
-
 - story: interactive_story_2
   steps:
   - intent: greet
@@ -167,13 +157,12 @@ stories:
   - slot_was_set:
     - rating: 5.0
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
-
 - story: interactive_story_1
   steps:
   - intent: greet
@@ -199,11 +188,10 @@ stories:
   - slot_was_set:
     - rating: 0.0
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
-
 - story: interactive_story_3
   steps:
   - intent: restaurant_search
@@ -232,11 +220,10 @@ stories:
   - slot_was_set:
     - rating: 5.0
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
-
 - story: interactive_story_4
   steps:
   - intent: greet
@@ -265,11 +252,10 @@ stories:
   - slot_was_set:
     - rating: 0.0
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
-
 - story: interactive_story_5
   steps:
   - intent: greet
@@ -298,11 +284,10 @@ stories:
   - slot_was_set:
     - rating: 5.0
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
-
 - story: interactive_story_6
   steps:
   - intent: greet
@@ -331,7 +316,107 @@ stories:
   - slot_was_set:
     - rating: 5.0
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+- story: Story from Conversation ID c641d397023542e6bc4bf9fdb96e610c
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - slot_was_set:
+    - city: Indore
+  - intent: location
+    entities:
+    - city: Indore
+  - action: utter_ask_cuisine
+  - slot_was_set:
+    - cuisine: Snacks
+  - intent: cuisines
+    entities:
+    - cuisine: Snacks
+  - action: utter_ask_price
+  - slot_was_set:
+    - price: 200-300
+  - intent: price_range
+    entities:
+    - price: 200-300
+  - action: utter_ask_rating
+  - slot_was_set:
+    - rating: 5.0
+  - intent: ratings
+    entities:
+    - rating: 5.0
+  - action: utter_search_restaurant
+  - action: action_search_restaurant
+  - action: utter_anything_else
+  - slot_was_set:
+    - city: No
+  - intent: deny
+    entities:
+    - city: No
+  - action: utter_goodbye
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - slot_was_set:
+    - city: hansk
+  - intent: location
+    entities:
+    - city: hansk
+  - action: utter_ask_cuisine
+  - slot_was_set:
+    - cuisine: Snacks
+  - intent: cuisines
+    entities:
+    - cuisine: Snacks
+  - action: utter_ask_price
+  - slot_was_set:
+    - price: 200-300
+  - intent: price_range
+    entities:
+    - price: 200-300
+  - action: utter_ask_rating
+  - slot_was_set:
+    - rating: 4.0
+  - intent: ratings
+    entities:
+    - rating: 4.0
+  - action: utter_search_restaurant
+  - action: action_search_restaurant
+  - action: utter_anything_else
+- story: Story from Conversation ID 751181855a764def9de9016e52ad6cfa
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - slot_was_set:
+    - city: Bangalore
+  - intent: location
+    entities:
+    - city: Bangalore
+  - action: utter_ask_price
+  - slot_was_set:
+    - cuisine: Desserts
+  - intent: search_with_cuisine
+    entities:
+    - cuisine: Desserts
+  - action: utter_ask_price
+  - slot_was_set:
+    - price: 300-400
+  - intent: price_range
+    entities:
+    - price: 300-400
+  - action: utter_ask_rating
+  - slot_was_set:
+    - rating: 4.0
+  - intent: ratings
+    entities:
+    - rating: 4.0
+  - action: utter_search_restaurant
+  - action: action_search_restaurant
   - action: utter_anything_else
   - intent: deny
   - action: utter_goodbye
