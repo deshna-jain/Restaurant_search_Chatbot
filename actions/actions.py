@@ -17,6 +17,7 @@ import pymongo
 from pymongo import MongoClient
 # import pandas as pd
 import json
+import urllib.parse
 # from rasa_core.events import SlotSet
 
 
@@ -37,7 +38,7 @@ class ActionHelloWorld(Action):
         p = int(price[-3:])
         print(p)
         
-        client = MongoClient("localhost", 27017)
+        client = MongoClient('mongodb+srv://devang12:'+urllib.parse.quote('Ancestor@1201')+'@cluster0.u1qzy.mongodb.net/Swiggy_Data?retryWrites=true&w=majority')
         db = client["Swiggy_Data"]
         col = db[c]
         
@@ -63,21 +64,8 @@ class ActionHelloWorld(Action):
             t = t+"\n("+str(sn)+")restaurant: "+x["restaurant"]+" price: "+x["swiggy_price"]+" ratings: "+x["swiggy_rating"]
             # l.append(x['restaurant'])
         dispatcher.utter_message(text = t)
-
-        # query = {"swiggy_price":{ "$regex": p }}
-        # doc = col.find_one(query)
-        # # for x in doc:
-        # #     print(x)
-        # dispatcher.utter_message(text=doc['restaurant'])
-        # print(doc)
-        
         
         print("city:", tracker.get_slot('city'))
-        # print("cuisine:", tracker.get_slot('cuisine'))
-        # dispatcher.utter_message(text="Your city is "+c)
-        # print(tracker.latest_message)
-
-        # print("Tracker: ",tracker)
     
         return []
 
