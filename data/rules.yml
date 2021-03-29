@@ -19,7 +19,7 @@ rules:
   steps:
   - intent: ratings
   - action: utter_search_restaurant
-  - action: action_hello_world
+  - action: action_search_restaurant
   - action: utter_anything_else
 
 
