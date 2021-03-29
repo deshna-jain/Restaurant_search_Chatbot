@@ -1,22 +1,40 @@
 version: '2.0'
+config:
+  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- ratings
-- cuisines
-- greet
-- price_range
-- deny
-- search_with_location
-- search_with_locationandcuisine
-- restaurant_search
-- location
-- search_with_cuisine
-- goodbye
-- stop
-- affirm
-- bot_challenge
+- ratings:
+    use_entities: true
+- cuisines:
+    use_entities: true
+- greet:
+    use_entities: true
+- price_range:
+    use_entities: true
+- deny:
+    use_entities: true
+- search_with_location:
+    use_entities: true
+- search_with_locationandcuisine:
+    use_entities: true
+- restaurant_search:
+    use_entities: true
+- location:
+    use_entities: true
+- search_with_cuisine:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- stop:
+    use_entities: true
+- affirm:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
 entities:
 - city
 - cuisine
@@ -24,16 +42,24 @@ entities:
 - rating
 slots:
   city:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   cuisine:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   price:
-    type: text
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
   rating:
-    type: float
+    type: rasa.shared.core.slots.FloatSlot
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
     max_value: 5.0
     min_value: 0.0
@@ -103,7 +129,8 @@ responses:
   utter_default:
   - text: Sorry I didn't get that. Can you rephrase?
 actions:
-- action_hello_world
+- action_search_restaurant
+- action_verify_location
 - utter_anything_else
 - utter_ask_cuisine
 - utter_ask_location
@@ -117,3 +144,5 @@ actions:
 - utter_iamabot
 - utter_search_restaurant
 - utter_welcome
+forms: {}
+e2e_actions: []
