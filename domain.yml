@@ -1,40 +1,23 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- ratings:
-    use_entities: true
-- cuisines:
-    use_entities: true
-- greet:
-    use_entities: true
-- price_range:
-    use_entities: true
-- deny:
-    use_entities: true
-- search_with_location:
-    use_entities: true
-- search_with_locationandcuisine:
-    use_entities: true
-- restaurant_search:
-    use_entities: true
-- location:
-    use_entities: true
-- search_with_cuisine:
-    use_entities: true
-- goodbye:
-    use_entities: true
-- stop:
-    use_entities: true
-- affirm:
-    use_entities: true
-- bot_challenge:
-    use_entities: true
-- nlu_fallback:
-    use_entities: true
+- location
+- greet
+- deny
+- restaurant_search
+- cuisines
+- ratings
+- search_with_locationandcuisine
+- search_with_cuisine
+- price_range
+- search_with_location
+- goodbye
+- stop
+- affirm
+- bot_challenge
+- nlu_fallback
 entities:
 - city
 - cuisine
@@ -42,27 +25,27 @@ entities:
 - rating
 slots:
   city:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   cuisine:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   price:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   rating:
-    type: rasa.shared.core.slots.FloatSlot
-    initial_value: null
-    auto_fill: true
+    type: float
     influence_conversation: true
     max_value: 5.0
     min_value: 0.0
+  location_ok:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+  cuisine_ok:
+    type: bool
+    initial_value: false
+    influence_conversation: true
 responses:
   utter_greet:
   - text: |
@@ -110,7 +93,7 @@ responses:
       title: Rs:300-400
     - payload: /price_range{{"price":">400"}}
       title: Rs>400
-    - payload: /price_range{{"price":"nill"}}
+    - payload: /price_range{{"price":"000"}}
       title: Any would work!
     text: 'Please select the price range(for two):'
   utter_ask_rating:
@@ -144,5 +127,3 @@ actions:
 - utter_iamabot
 - utter_search_restaurant
 - utter_welcome
-forms: {}
-e2e_actions: []
