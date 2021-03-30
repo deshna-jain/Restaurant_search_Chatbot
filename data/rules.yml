@@ -19,12 +19,13 @@ rules:
   steps:
   - intent: ratings
   - action: utter_search_restaurant
-  - action: action_search_restaurant
-  - action: utter_anything_else
-
+  wait_for_user_input: false
+  #- action: action_search_restaurant
+  #- action: utter_anything_else
 
 - rule: Implementation of the Two-Stage-Fallback
   steps:
   - intent: nlu_fallback
   - action: action_two_stage_fallback
   - active_loop: action_two_stage_fallback
+
