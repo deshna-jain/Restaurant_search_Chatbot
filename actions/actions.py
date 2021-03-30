@@ -11,6 +11,7 @@
 from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
+from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 
 import pymongo
@@ -41,13 +42,12 @@ class ActionHelloWorld(Action):
         client = MongoClient('mongodb+srv://devang12:'+urllib.parse.quote('Ancestor@1201')+'@cluster0.u1qzy.mongodb.net/Swiggy_Data?retryWrites=true&w=majority')
         db = client["Swiggy_Data"]
         col = db[c]
-        
+        q3 = {"tags": {"$regex": cuisines}}
         if p == 400 and len(price) == 4:
-            q2 = {"swiggy_price" : { "$gte" : "₹" + str(p) + " FOR TWO"}} 
+            q2 = {"swiggy_price" : { "$gte" : "₹" + str(p) + " FOR TWO"}}
         else :
-            q2 = { "$and" : [{"swiggy_price" : { "$lte" : "₹" + str(p) + " FOR TWO"}},{"swiggy_price" : { "$gte" : "₹" + str(p-100) + " FOR TWO"}}]} 
-        
-        q3 = {"tags" : {"$regex" : cuisines}}
+            q2 = { "$and" : [{"swiggy_price" : { "$lte" : "₹" + str(p) + " FOR TWO"}},{"swiggy_price" : { "$gte" : "₹" + str(p-100) + " FOR TWO"}}]}
+
         if r == 0.0:
             query = {"$and": [q2,q3]}
         else:
@@ -85,5 +85,6 @@ class VerifyLocation(Action):
         c = city.lower()
         if c not in self.cities :
             dispatcher.utter_message("Sorry we are currently not available in "+c[0].upper()+c[1:])
-        
-        return []
+            return [SlotSet('city', None), SlotSet('location_ok', False)]
+        else:
+            return [SlotSet('city', c), SlotSet('location_ok', True)]
