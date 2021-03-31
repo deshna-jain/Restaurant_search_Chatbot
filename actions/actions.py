@@ -41,9 +41,12 @@ class ActionHelloWorld(Action):
         db = client["Swiggy_Data"]
         col = db[c]
         cuisine_list = cuisines.lower().split(" ")
-        cuisine = cuisine_list[0][0].upper()+cuisine_list[0][1:]+" "+cuisine_list[1][0].upper()+cuisine_list[1][1:]
-        q3 = {"tags": {"$regex": cuisine}}
-        if price == "nill":
+        cuisine = ''
+        for y in cuisine_list:
+            cuisine += y[0].upper()+y[1:]+" "
+        
+        q3 = {"tags": {"$regex": cuisine.strip(" ")}}
+        if price == "000":
             if r == 0.0:
                 query = q3
             else:
@@ -72,7 +75,10 @@ class ActionHelloWorld(Action):
             sn+=1 
             t = t+"\n("+str(sn)+")restaurant: "+x["restaurant"]+" price: "+x["swiggy_price"]+" ratings: "+x["swiggy_rating"]
             # l.append(x['restaurant'])
-        dispatcher.utter_message(text = t)
+        if t=='':
+            dispatcher.utter_message(text = "No Results Found.")    
+        else:
+            dispatcher.utter_message(text = t)
         
         print("city:", tracker.get_slot('city'))
     
@@ -97,3 +103,29 @@ class VerifyLocation(Action):
             return [SlotSet('city', None), SlotSet('location_ok', False)]
         else:
             return [SlotSet('city', c), SlotSet('location_ok', True)]
+
+
+class VerifyCuisine(Action):
+
+    def __init__(self):
+        ## Check if city is in database
+        self.cuisine = ['Sweets', 'Snacks', 'Beverages', 'North Indian', 'Desserts', 'Indian', 'Bakery', 'Fast Food', 'Chinese', 'Ice Cream', 'Tandoor', 'Continental', 'Chaat', 'Healthy Food', 'Biryani', 'Italian', 'Pizzas', 'Hyderabadi', 'Paan', 'South Indian', 'Juices', 'Barbecue', 'Thalis', 'Combo', 'Oriental', 'Cafe', 'American', 'Mexican', 'Mughlai', 'Nepalese', 'Andhra', 'Seafood', 'Thai', 'North Eastern', 'Tribal', 'Kebabs', 'Bengali', 'Street Food', 'Punjabi', 'Pastas', 'Salad', 'Gujarati', 'Arabian', 'Jain', 'Europe', 'Pan-Asian', 'Asian', 'Salads', 'Lebanese', 'Japanese', 'Maharashtrian', 'Afghani', 'Rajasthani', 'Kerala', 'Lucknowi', 'Haleem', 'Grill', 'Home Food', 'Tibetan', 'Mangalorean', 'Malaysian', 'Chettinad', 'Middle Eastern', 'Turkish', 'Portuguese', 'Awadhi', 'Coastal', 'European', 'Malwani', 'Mediterranean', 'Keto', 'Italian-American', 'Mongolian', 'Goan', 'South American', 'Oriya', 'African', 'Burmese', 'Sushi', 'Korean', 'Singaporean', 'French', 'Persian', 'Sindhi', 'Assamese', 'Naga', 'Khasi', 'German', 'Bihari', 'Parsi', 'Spanish', 'Konkan', 'Fastfood', 'Raw meats', 'Australian']
+
+    def name(self):
+        return "action_verify_cuisine"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        cuisines = tracker.get_slot('cuisine')
+        
+        cuisine_list = cuisines.lower().split(" ")
+        c = ''
+        for y in cuisine_list:
+            c += y[0].upper()+y[1:]+" "
+        p = c.strip()
+        if p not in self.cuisine :
+            dispatcher.utter_message("Sorry cuisine "+p+" is not available")
+            return [SlotSet('cuisine', None), SlotSet('cuisine_ok', False)]
+        else:
+            return [SlotSet('cuisine', c), SlotSet('cuisine_ok', True)]
