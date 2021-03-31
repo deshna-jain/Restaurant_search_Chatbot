@@ -22,6 +22,7 @@ nlu:
     - heyy ssup!
     - helloo
     - hellloooo
+    - hie
 - intent: goodbye
   examples: |
     - good afternoon
@@ -78,6 +79,8 @@ nlu:
     - nope
     - no thanks
     - no that's enough
+    - no that's it !
+    - no thank you!
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -146,6 +149,7 @@ nlu:
     - get me some restaurants near
     - I am hungry
     - i am looking for restaurant
+    - i am looking for something to eat
 - intent: search_with_location
   examples: |
     - i am looking in [Indore](city)
@@ -166,6 +170,8 @@ nlu:
     - looking to eat in [kota](city)
     - get me some food in [udaipur](city)
     - i am looking for restaurants in [Indore](city)
+    - i am looking for something to eat in [gwalior](city)
+    - get me some good restaurants in [chennai](city)
 - intent: location
   examples: |
     - my preferred location will be [Bengaluru](city)
@@ -745,8 +751,9 @@ nlu:
     - [banglore](city)
     - [Bangalore](city)
     - i think i am near [Mumbai](city)
-    - [Indore](city)
-    - [Mumbai](city)
+    - i live in [bhopal](city)
+    - in [dewas](city)
+    - [mumbai](city)
 - intent: search_with_locationandcuisine
   examples: |
     - i am looking for some [Chinese](cuisine) food in [Mumbai](city)
@@ -821,6 +828,9 @@ nlu:
     - I want some delicious [idli sambhar](cuisine)
     - I want [north indian](cuisine) food
     - I want delicious [Mexican](cuisine) food
+    - i want [south indian](cuisine)
+    - hello i need some [pastas](cuisine)
+    - i want some [pizza](cuisine)
 - intent: cuisines
   examples: |
     - [Sweets](cuisine)
@@ -927,6 +937,10 @@ nlu:
     - i would love to have [expresso coffee](cuisine)
     - [rajasthani](cuisine)
     - [North Indian](cuisine)
+    - [pizza](cuisine)
+    - [pizzas](cuisine)
+    - [itaian](cuisine)
+    - [pizzas](cuisine)
 - intent: price_range
   examples: |
     - [100-200](price)

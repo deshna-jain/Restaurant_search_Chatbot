@@ -3,16 +3,16 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- search_with_cuisine
+- price_range
 - location
+- cuisines
+- ratings
 - greet
 - deny
 - restaurant_search
-- cuisines
-- ratings
-- search_with_locationandcuisine
-- search_with_cuisine
-- price_range
 - search_with_location
+- search_with_locationandcuisine
 - goodbye
 - stop
 - affirm
@@ -113,6 +113,7 @@ responses:
   - text: Sorry I didn't get that. Can you rephrase?
 actions:
 - action_search_restaurant
+- action_verify_cuisine
 - action_verify_location
 - utter_anything_else
 - utter_ask_cuisine

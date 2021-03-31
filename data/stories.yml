@@ -10,6 +10,7 @@ stories:
   - action: action_verify_location
   - action: utter_ask_cuisine
   - intent: cuisines
+  - action: action_verify_cuisine
   - action: utter_ask_price
   - intent: price_range
   - action: utter_ask_rating
@@ -29,6 +30,7 @@ stories:
   - action: action_verify_location
   - action: utter_ask_cuisine
   - intent: cuisines
+  - action: action_verify_cuisine
   - action: utter_ask_price
   - intent: price_range
   - action: utter_ask_rating
@@ -45,6 +47,7 @@ stories:
   - intent: greet
   - action: utter_greet
   - intent: search_with_cuisine
+  - action: action_verify_cuisine
   - action: utter_ask_location
   - intent: location
   - action: action_verify_location
@@ -65,6 +68,7 @@ stories:
   - action: utter_greet
   - intent: search_with_locationandcuisine
   - action: action_verify_location
+  - action: action_verify_cuisine
   - action: utter_ask_price
   - intent: price_range
   - action: utter_ask_rating
@@ -79,6 +83,7 @@ stories:
 - story: CUISINE ASK LOCATION
   steps:
   - intent: search_with_cuisine
+  - action: action_verify_cuisine
   - action: utter_ask_location
   - intent: location
   - action: action_verify_location
@@ -99,6 +104,7 @@ stories:
   - action: action_verify_location
   - action: utter_ask_cuisine
   - intent: cuisines
+  - action: action_verify_cuisine
   - action: utter_ask_price
   - intent: price_range
   - action: utter_ask_rating
@@ -115,6 +121,7 @@ stories:
   - intent: restaurant_search
   - action: utter_ask_cuisine
   - intent: cuisines
+  - action: action_verify_cuisine
   - action: utter_ask_location
   - intent: location
   - action: action_verify_location
@@ -607,6 +614,252 @@ stories:
     - price: '>400'
   - slot_was_set:
     - price: '>400'
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating
+  - slot_was_set:
+    - rating: 0.0
+  - action: utter_search_restaurant
+  - action: action_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_12
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: location
+    entities:
+    - city: bhopal
+  - slot_was_set:
+    - city: bhopal
+  - action: action_verify_location
+  - slot_was_set:
+    - city: bhopal
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_cuisine
+  - intent: search_with_cuisine
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: action_verify_cuisine
+  - slot_was_set:
+    - cuisine: 'South Indian '
+  - slot_was_set:
+    - cuisine_ok: true
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: '000'
+  - slot_was_set:
+    - price: '000'
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating
+  - slot_was_set:
+    - rating: 0.0
+  - action: utter_search_restaurant
+  - action: action_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_13
+  steps:
+  - intent: search_with_location
+    entities:
+    - city: gwalior
+  - slot_was_set:
+    - city: gwalior
+  - action: action_verify_location
+  - slot_was_set:
+    - city: gwalior
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_cuisine
+  - intent: cuisines
+    entities:
+    - cuisine: pizza
+  - slot_was_set:
+    - cuisine: pizza
+  - action: action_verify_cuisine
+  - slot_was_set:
+    - cuisine: null
+  - slot_was_set:
+    - cuisine_ok: false
+  - action: utter_ask_cuisine
+  - intent: cuisines
+    entities:
+    - cuisine: pizzas
+  - slot_was_set:
+    - cuisine: pizzas
+  - action: action_verify_cuisine
+  - slot_was_set:
+    - cuisine: 'Pizzas '
+  - slot_was_set:
+    - cuisine_ok: true
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: 100-200
+  - slot_was_set:
+    - price: 100-200
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating
+  - slot_was_set:
+    - rating: 0.0
+  - action: utter_search_restaurant
+  - action: action_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_14
+  steps:
+  - intent: search_with_cuisine
+    entities:
+    - cuisine: pastas
+  - slot_was_set:
+    - cuisine: pastas
+  - action: action_verify_cuisine
+  - slot_was_set:
+    - cuisine: 'Pastas '
+  - slot_was_set:
+    - cuisine_ok: true
+  - action: utter_ask_location
+  - intent: location
+    entities:
+    - city: dewas
+  - slot_was_set:
+    - city: dewas
+  - action: action_verify_location
+  - slot_was_set:
+    - city: dewas
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: '000'
+  - slot_was_set:
+    - price: '000'
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating
+  - slot_was_set:
+    - rating: 0.0
+  - action: utter_search_restaurant
+  - action: action_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_15
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_with_location
+    entities:
+    - city: chennai
+  - slot_was_set:
+    - city: chennai
+  - action: action_verify_location
+  - slot_was_set:
+    - city: chennai
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_cuisine
+  - intent: cuisines
+    entities:
+    - cuisine: itaian
+  - slot_was_set:
+    - cuisine: itaian
+  - action: action_verify_cuisine
+  - slot_was_set:
+    - cuisine: null
+  - slot_was_set:
+    - cuisine_ok: false
+  - action: utter_ask_cuisine
+  - intent: cuisines
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: action_verify_cuisine
+  - slot_was_set:
+    - cuisine: 'Italian '
+  - slot_was_set:
+    - cuisine_ok: true
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: '000'
+  - slot_was_set:
+    - price: '000'
+  - action: utter_ask_rating
+  - intent: ratings
+    entities:
+    - rating
+  - slot_was_set:
+    - rating: 0.0
+  - action: utter_search_restaurant
+  - action: action_search_restaurant
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_16
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_with_cuisine
+    entities:
+    - cuisine: pizza
+  - slot_was_set:
+    - cuisine: pizza
+  - action: action_verify_cuisine
+  - slot_was_set:
+    - cuisine: null
+  - slot_was_set:
+    - cuisine_ok: false
+  - action: utter_ask_cuisine
+  - intent: cuisines
+    entities:
+    - cuisine: pizzas
+  - slot_was_set:
+    - cuisine: pizzas
+  - action: action_verify_cuisine
+  - slot_was_set:
+    - cuisine: 'Pizzas '
+  - slot_was_set:
+    - cuisine_ok: true
+  - action: utter_ask_location
+  - intent: location
+    entities:
+    - city: mumbai
+  - slot_was_set:
+    - city: mumbai
+  - action: action_verify_location
+  - slot_was_set:
+    - city: mumbai
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_price
+  - intent: price_range
+    entities:
+    - price: '000'
+  - slot_was_set:
+    - price: '000'
   - action: utter_ask_rating
   - intent: ratings
     entities:
