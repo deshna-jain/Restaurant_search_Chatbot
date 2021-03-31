@@ -36,23 +36,32 @@ class ActionHelloWorld(Action):
         r = tracker.get_slot('rating')
         cuisines = tracker.get_slot('cuisine')
         price = tracker.get_slot('price')
-        p = int(price[-3:])
-        print(p)
         
         client = MongoClient('mongodb+srv://devang12:'+urllib.parse.quote('Ancestor@1201')+'@cluster0.u1qzy.mongodb.net/Swiggy_Data?retryWrites=true&w=majority')
         db = client["Swiggy_Data"]
         col = db[c]
-        q3 = {"tags": {"$regex": cuisines}}
-        if p == 400 and len(price) == 4:
-            q2 = {"swiggy_price" : { "$gte" : "₹" + str(p) + " FOR TWO"}}
-        else :
-            q2 = { "$and" : [{"swiggy_price" : { "$lte" : "₹" + str(p) + " FOR TWO"}},{"swiggy_price" : { "$gte" : "₹" + str(p-100) + " FOR TWO"}}]}
-
-        if r == 0.0:
-            query = {"$and": [q2,q3]}
+        cuisine_list = cuisines.lower().split(" ")
+        cuisine = cuisine_list[0][0].upper()+cuisine_list[0][1:]+" "+cuisine_list[1][0].upper()+cuisine_list[1][1:]
+        q3 = {"tags": {"$regex": cuisine}}
+        if price == "nill":
+            if r == 0.0:
+                query = q3
+            else:
+                q1 = {"$and": [{ "swiggy_rating" : { "$lte" : str(r) }}, { "swiggy_rating" : { "$gte" : str(r-1) }}]}
+                query = {"$and": [q1,q3]}
         else:
-            q1 = {"$and": [{ "swiggy_rating" : { "$lte" : str(r) }}, { "swiggy_rating" : { "$gte" : str(r-1) }}]}
-            query = {"$and": [q1,q2,q3]}
+            p = int(price[-3:])
+            print(p)
+            if p == 400 and len(price) == 4:
+                q2 = {"swiggy_price" : { "$gte" : "₹" + str(p) + " FOR TWO"}}
+            else :
+                q2 = { "$and" : [{"swiggy_price" : { "$lte" : "₹" + str(p) + " FOR TWO"}},{"swiggy_price" : { "$gte" : "₹" + str(p-100) + " FOR TWO"}}]}
+
+            if r == 0.0:
+                query = {"$and": [q2,q3]}
+            else:
+                q1 = {"$and": [{ "swiggy_rating" : { "$lte" : str(r) }}, { "swiggy_rating" : { "$gte" : str(r-1) }}]}
+                query = {"$and": [q1,q2,q3]}
 
 
         doc = col.find(query).sort("swiggy_rating",-1).limit(5)
