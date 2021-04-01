@@ -3,15 +3,15 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- search_with_cuisine
-- price_range
-- location
 - cuisines
-- ratings
-- greet
-- deny
+- location
 - restaurant_search
+- ratings
+- deny
+- price_range
 - search_with_location
+- greet
+- search_with_cuisine
 - search_with_locationandcuisine
 - goodbye
 - stop
@@ -56,7 +56,7 @@ responses:
       How can I help you?
   - text: Hello Joey!! looking for some delicious treat?
   utter_goodbye:
-  - text: Bye
+  - text: Bon appétit :)
   - text: Have a nice day :)
   - text: Thankyou! Enjoy your meal :)
   utter_iamabot:

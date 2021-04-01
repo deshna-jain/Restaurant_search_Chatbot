@@ -1,47 +1,78 @@
 version: "2.0"
 stories:
-- story: search with cuisine (C:\Users\DESHNA~1\AppData\Local\Temp\tmpp4y_s304\776c4394c41545d294135e36230a749e_test_stories.yml)
+- story: search with cuisine (C:\Users\DESHNA~1\AppData\Local\Temp\tmp5po31j9g\e787fe822d764075a110497c10f2ca93_test_stories.yml)
   steps:
   - intent: search_with_cuisine  # predicted: restaurant_search: I am looking for some delicious [mexican](cuisine) food
     entities:
     - cuisine: mexican
   - slot_was_set:
     - cuisine: mexican
+  - action: action_verify_cuisine  # predicted: utter_ask_location
   - action: utter_ask_location
   - intent: location
     entities:
     - city: Mumbai
   - slot_was_set:
     - city: Mumbai
-  - action: utter_search_reasaurant  # predicted: utter_ask_price
-  - intent: affirm
-  - action: utter_goodbye  # predicted: utter_ask_cuisine
-- story: search with location (C:\Users\DESHNA~1\AppData\Local\Temp\tmpp4y_s304\776c4394c41545d294135e36230a749e_test_stories.yml)
+  - action: action_verify_location
+  - action: utter_ask_price
+  - intent: price_range  # predicted: affirm: Anything would work
+  - action: utter_ask_rating
+  - intent: ratings  # predicted: affirm: Anything would work
+  - action: utter_search_reasaurant  # predicted: utter_search_restaurant
+  - action: action_search_restaurant  # predicted: action_listen
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+- story: search with location (C:\Users\DESHNA~1\AppData\Local\Temp\tmp5po31j9g\e787fe822d764075a110497c10f2ca93_test_stories.yml)
   steps:
   - intent: search_with_location
     entities:
     - city: Delhi
   - slot_was_set:
     - city: Delhi
+  - action: action_verify_location
   - action: utter_ask_cuisines  # predicted: utter_ask_cuisine
   - intent: cuisines
     entities:
     - cuisine: Chole bhature
   - slot_was_set:
     - cuisine: Chole bhature
-  - action: utter_search_reasaurant  # predicted: utter_ask_price
-  - intent: affirm
-  - action: utter_goodbye  # predicted: utter_ask_price
-- story: search with location and cuisine (C:\Users\DESHNA~1\AppData\Local\Temp\tmpp4y_s304\776c4394c41545d294135e36230a749e_test_stories.yml)
-  steps:
-  - intent: search_with_locationandcuisine  # predicted: search_with_location: I am looking for delicious [Pizza](cuisine) in [Indore](city)
+  - action: action_verify_cuisine  # predicted: utter_ask_price
+  - action: utter_anything_else  # predicted: utter_ask_price
+  - intent: cuisines
     entities:
-    - cuisine: Pizza
+    - cuisine: north Indian
+  - slot_was_set:
+    - cuisine: north Indian
+  - action: action_verify_cuisine  # predicted: utter_ask_location
+  - action: utter_ask_price
+  - intent: price_range  # predicted: price_range: [Rs:200-300](price)
+  - action: utter_ask_rating
+  - intent: ratings  # predicted: nlu_fallback: [4.0](rating) to [5.0](rating)
+  - action: utter_search_reasaurant  # predicted: utter_search_restaurant
+  - action: action_search_restaurant  # predicted: action_listen
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
+- story: search with location and cuisine (C:\Users\DESHNA~1\AppData\Local\Temp\tmp5po31j9g\e787fe822d764075a110497c10f2ca93_test_stories.yml)
+  steps:
+  - intent: search_with_locationandcuisine  # predicted: search_with_location: I am looking for delicious [Pizzas](cuisine) in [Indore](city)
+    entities:
+    - cuisine: Pizzas
     - city: Indore
   - slot_was_set:
     - city: Indore
   - slot_was_set:
-    - cuisine: Pizza
-  - action: utter_search_reasaurant  # predicted: utter_ask_price
-  - intent: affirm
-  - action: utter_goodbye  # predicted: utter_ask_cuisine
+    - cuisine: Pizzas
+  - action: action_verify_location
+  - action: action_verify_cuisine  # predicted: utter_ask_price
+  - action: utter_ask_price
+  - intent: price_range  # predicted: price_range: [Rs:100-200](price)
+  - action: utter_ask_rating
+  - intent: ratings  # predicted: nlu_fallback: [4.0](rating) to [5.0](rating)
+  - action: utter_search_reasaurant  # predicted: utter_search_restaurant
+  - action: action_search_restaurant  # predicted: action_listen
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_goodbye
