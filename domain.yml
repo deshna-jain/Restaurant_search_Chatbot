@@ -3,19 +3,19 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- cuisines
-- location
-- restaurant_search
 - ratings
 - deny
-- price_range
-- search_with_location
-- greet
 - search_with_cuisine
+- cuisines
+- greet
 - search_with_locationandcuisine
+- search_with_location
+- price_range
+- affirm
+- location
+- restaurant_search
 - goodbye
 - stop
-- affirm
 - bot_challenge
 - nlu_fallback
 entities:

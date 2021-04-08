@@ -24,6 +24,7 @@ nlu:
     - hellloooo
     - hie
     - henlo
+    - hellooo
 - intent: goodbye
   examples: |
     - good afternoon
@@ -83,6 +84,7 @@ nlu:
     - no that's it !
     - no thank you!
     - no that will be enough
+    - no thank you..
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -176,6 +178,7 @@ nlu:
     - i am looking for something to eat in [gwalior](city)
     - get me some good restaurants in [chennai](city)
     - i am searching for cafes in [Mumbai](city)
+    - i am looking for restaurants in [varanasi](city)
 - intent: location
   examples: |
     - my preferred location will be [Bengaluru](city)
@@ -760,6 +763,7 @@ nlu:
     - [mumbai](city)
     - my preferred location will be [indore](city)
     - i think i am near [Delhi](city)
+    - [bangalore](city)
 - intent: search_with_locationandcuisine
   examples: |
     - i am looking for some [Chinese](cuisine) food in [Mumbai](city)
@@ -822,6 +826,7 @@ nlu:
     - looking for some [mexican](cuisine) in [Indore](city)
     - I want some [Chinese](cuisine) food in [Indore](city)
     - get me some [biryani](cuisine) in [hyderabad](city)
+    - i want to search for [biryani](cuisine) in [hyderabad](city)
 - intent: search_with_cuisine
   examples: |
     - i want some delicious [south indian](cuisine) food
@@ -841,6 +846,12 @@ nlu:
     - i want an [icecream](cuisine)
     - i want [fast food](cuisine)
     - get me some delicious [sweets](cuisine)
+    - get me some [snaccks](cuisine)
+    - get me some [snacks](cuisine)
+    - i want [coffee](cuisine)
+    - i want [mexican](cuisine)
+    - i want [burgers](cuisine)
+    - i want [pizzas](cuisine)
 - intent: cuisines
   examples: |
     - [Sweets](cuisine)
@@ -951,9 +962,10 @@ nlu:
     - [pizzas](cuisine)
     - [itaian](cuisine)
     - [ice cream](cuisine)
-    - [north indian](cuisine)
     - [maharastrian](cuisine)
     - [maharashtrian](cuisine)
+    - [north indian](cuisine)
+    - [biryani](cuisine)
 - intent: price_range
   examples: |
     - [100-200](price)
